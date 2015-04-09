@@ -1,6 +1,6 @@
 <?php namespace Cemleme\Cmauth\Mailers;
 
-use \Cemleme\Cmauth\models\User;
+use User;
 use Config;
 
 class UserMailer extends Mailer{

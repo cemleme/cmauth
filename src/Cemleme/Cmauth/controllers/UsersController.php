@@ -8,7 +8,7 @@ use Input;
 use Hash;
 use Config;
 
-use Cemleme\Cmauth\models\User;
+use User;
 use Cemleme\Cmauth\models\Group;
 use Cemleme\Cmauth\models\Permission;
 

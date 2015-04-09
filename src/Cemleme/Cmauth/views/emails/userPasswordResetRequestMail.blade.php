@@ -1,4 +1,4 @@
-@extends('auth::emails.userMailTemplate')
+@extends('cmauth::emails.userMailTemplate')
 
 @section('icerikHeader')
 	Password reset request

@@ -8,7 +8,7 @@ use Input;
 use Validator;
 use Hash;
 
-use Cemleme\Cmauth\models\User;
+use User;
 
 class UsersRC extends BaseController {
 	

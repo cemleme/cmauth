@@ -1,4 +1,4 @@
-@extends('auth::emails.layout')
+@extends('cmauth::emails.layout')
 
 
 @section('contenttop')
