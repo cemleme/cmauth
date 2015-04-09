@@ -5,19 +5,19 @@ use Session;
 use Auth;
 use Route;
 
-
-use Cemleme\Cmauth\models\Permission;
-
+use Cemleme\Cmauth\managers\UserPermissionRefresher;
 
 class PermissionChecker {
 	
-	public function __construct(){
+	protected $permissionRefresher;
 
+	public function __construct(UserPermissionRefresher $permissionRefresher){
+		$this->permissionRefresher = $permissionRefresher;
 	}
 
 	public function checkPermission($value){
 		
-		$this->checkAndGetSessionUserData();
+		$this->permissionRefresher->refreshPermissions();
 
 		$groupNames=Session::get('userGroupNames');
 		if(in_array('MAXADMIN',$groupNames)) return true;
