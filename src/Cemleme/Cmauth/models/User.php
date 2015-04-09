@@ -11,9 +11,6 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-use Jenssegers\Date\Date;
-use Lang;
-
 class User extends Eloquent implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
@@ -57,7 +54,6 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
 
 	public function __construct(){
  		setlocale(LC_TIME, 'tr_TR.UTF-8');  
- 		\Lang::setLocale('tr');
 	}
 
 		
@@ -66,26 +62,12 @@ class User extends Eloquent implements AuthenticatableContract, CanResetPassword
 	    return $this->belongsToMany('Cemleme\Cmauth\models\Group','cmauth_group_user','user_id','group_id');
 	}
 
-	public function projects()
-	{
-	    return $this->belongsToMany('Cemleme\projects\models\Project','projects_users_roles','user_id','project_id');
-	}
-
-	public function defaultproject()
-	{
-	    return $this->belongsToMany('Cemleme\projects\models\Project','projects_users_defaults','user_id','project_id');
-	}
-
 	public function getLastActivityDiffTrAttribute($date){
  		return $this->last_activity->diffForHumans();
- 		//$date=new Date($this->last_activity);
-		//return $date->diffForHumans(); 
 	}	
 
 	public function getLastLoginDiffTrAttribute($date){
  		return $this->last_login->diffForHumans();
- 		//$date=new Date($this->last_login);
-		//return $date->diffForHumans(); 
 	}
 
 	public function newRandomPassword(){
