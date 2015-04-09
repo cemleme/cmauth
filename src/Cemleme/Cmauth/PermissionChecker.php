@@ -9,15 +9,9 @@ use Cemleme\Cmauth\managers\UserPermissionRefresher;
 
 class PermissionChecker {
 	
-	protected $permissionRefresher;
-
-	public function __construct(UserPermissionRefresher $permissionRefresher){
-		$this->permissionRefresher = $permissionRefresher;
-	}
-
-	public function checkPermission($value){
+	public function checkPermission($value, UserPermissionRefresher $permissionRefresher){
 		
-		$this->permissionRefresher->refreshPermissions();
+		$permissionRefresher->refreshPermissions();
 
 		$groupNames=Session::get('userGroupNames');
 		if(in_array('MAXADMIN',$groupNames)) return true;
