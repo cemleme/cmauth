@@ -4,7 +4,6 @@
 
 <style>
 	.container {
-		padding-top:20px;
 	}
 	
 	.dashboard .btn:not(.btn-block) { 
@@ -13,7 +12,7 @@
 	}
 </style>
 
-<div class="container">
+<div class="">
 
 	<div class="panel panel-primary">
 		<div class="panel-heading">
