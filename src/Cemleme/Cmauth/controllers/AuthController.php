@@ -10,16 +10,15 @@ use Hash;
 use DateTime;
 use User;
 
-use  Cemleme\Cmauth\PermissionChecker;
+use Cemleme\Cmauth\managers\UserPermissionRefresher;
 
 class AuthController extends BaseController {
 
 	//protected $connection="mysqlauthdb";
-	protected $permissionChecker, $projectPermissionChecker;
+	protected $permissionRefresher;
 
-	public function __construct(PermissionChecker $permissionChecker) { 
-
-		$this->permissionChecker = $permissionChecker;
+	public function __construct(UserPermissionRefresher $permissionRefresher) { 
+		$this->permissionRefresher = $permissionRefresher;
 
 		$this->middleware('auth', ['except' => ['getLogin', 'postLogin']]); 
 	}
@@ -45,8 +44,7 @@ class AuthController extends BaseController {
 			$user->last_login = new DateTime();
     		$user->save();
 
-    		$this->permissionChecker->checkAndGetSessionUserData(true);
-    		//$this->projectPermissionChecker->checkAndGetSessionUserData(true);
+    		$this->permissionRefresher->refreshPermissions(true);
 		
 			return Redirect::intended('/');
 		} else {
@@ -62,10 +60,7 @@ class AuthController extends BaseController {
 	}	
 
 	public function getYetkiyenile(){
-		//$user = Auth::user();
-		$this->permissionChecker->checkAndGetSessionUserData(true);
-		$this->projectPermissionChecker->checkAndGetSessionUserData(true);
-		//		$user->checkAndGetSessionProjectData(true);
+		$this->permissionRefresher->refreshPermissions(true);
 		return Redirect::to('/');
 	}
 	
