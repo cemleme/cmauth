@@ -20,6 +20,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 });
 
+Route::get('login', 'Cemleme\Cmauth\controllers\AuthController@getLogin');
 Route::controllers([
 	'cmauth' => 'Cemleme\Cmauth\controllers\AuthController',
 	'auth' => 'Cemleme\Cmauth\controllers\AuthController',
