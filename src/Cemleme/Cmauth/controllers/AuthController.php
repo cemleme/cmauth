@@ -10,14 +10,12 @@ use Hash;
 use DateTime;
 use User;
 
-use Cemleme\Cmauth\managers\UserPermissionRefresher;
-
 class AuthController extends BaseController {
 
 	//protected $connection="mysqlauthdb";
 	protected $permissionRefresher;
 
-	public function __construct(UserPermissionRefresher $permissionRefresher) { 
+	public function __construct(\UserPermissionRefresher $permissionRefresher) { 
 		$this->permissionRefresher = $permissionRefresher;
 
 		$this->middleware('auth', ['except' => ['getLogin', 'postLogin']]); 

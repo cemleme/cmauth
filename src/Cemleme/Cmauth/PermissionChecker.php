@@ -5,13 +5,11 @@ use Session;
 use Auth;
 use Route;
 
-use Cemleme\Cmauth\managers\UserPermissionRefresher;
-
 class PermissionChecker {
 	
 	public function checkPermission($value){
 
-		$permissionRefresher = new UserPermissionRefresher(); 
+		$permissionRefresher = new \UserPermissionRefresher(); 
 		$permissionRefresher->refreshPermissions();
 
 		$groupNames=Session::get('userGroupNames');

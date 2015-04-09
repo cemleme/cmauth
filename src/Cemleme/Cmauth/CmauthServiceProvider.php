@@ -33,6 +33,7 @@ class CmauthServiceProvider extends ServiceProvider {
         {
             $loader = \Illuminate\Foundation\AliasLoader::getInstance();
             $loader->alias('PermissionChecker', 'Cemleme\Cmauth\Facades\PermissionChecker');
+            $loader->alias('UserPermissionRefresher', config('cmauth.permissionRefresher'));
             $loader->alias('User', 'Cemleme\Cmauth\models\User');
         });
 	}
