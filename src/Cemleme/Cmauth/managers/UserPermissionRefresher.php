@@ -1,5 +1,7 @@
 <?php namespace Cemleme\Cmauth\managers;
 
+use Auth;
+use Session;
 
 class UserPermissionRefresher {
 	
