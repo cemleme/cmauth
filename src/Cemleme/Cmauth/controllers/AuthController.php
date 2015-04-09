@@ -28,8 +28,7 @@ class AuthController extends BaseController {
 	}
 	
 	public function getLogin() {
-		return view('auth.login');
-		//return View::make('cmauth::login');
+		return view(config('cmauth.loginview'));
 	}
 	
 	public function postLogin() {
@@ -92,7 +91,6 @@ class AuthController extends BaseController {
 
 
 	public function getSettings() {
-
 		return $this->returnLayout('cmauth::pwdreset');
 	}	
 }

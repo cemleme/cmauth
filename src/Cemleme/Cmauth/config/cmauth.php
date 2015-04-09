@@ -2,5 +2,6 @@
 
 return array(
 	'title' => 'Eser',
-	'mastertemplate' => 'cmauth::partials.master'
+	'mastertemplate' => 'cmauth::partials.master',
+	'loginview' => 'auth.login'
 );
