@@ -33,7 +33,7 @@ class LDAP {
 				return true;
 			} 
 			else {
-				Session::flash('ldap_error', 'You are not allowed to connect to LDAP.');
+				Session::flash('ldap_error', 'You have entered wrong username and password');
 				return false;
 			}
 		 
