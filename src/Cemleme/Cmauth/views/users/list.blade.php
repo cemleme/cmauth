@@ -6,7 +6,7 @@
 	<thead>
 		<tr>
 			<th></th>
-			<th></th>
+			<th>LDAP</th>
 			<th>Ad</th>
 			<th>Email</th>
 			<th>Last Activity</th>
@@ -27,8 +27,7 @@
 					<a href="/cmauth/users/{{$user->id}}/welcomemail" class="btn btn-info laravel-submit" data-method="put" data-confirm="{{$user->name}} şifresini sıfırlamak istediğinizden emin misiniz?">Welcome</a>
 					@endif
 				</td>
-				<td>
-				</td>
+				<td>{{ $user->ldap }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
 				<td>{{ $user->last_activity_diff_tr }}</td>

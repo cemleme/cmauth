@@ -14,6 +14,15 @@
 			<input class="form-control" name="email" type="text" value="{{$user->email}}" id="email">
 		</div>
 	</div>
+	<div class="form-group">
+		<label for="email" class="control-label col-md-1">Authentication System</label>
+		<div class="col-md-4">
+			<select name="ldap" class="form-control">
+				<option value="0" {{($user->ldap) ? '' : 'selected'}}>Cmauth</option>
+				<option value="1" {{($user->ldap) ? 'selected' : ''}}>LDAP</option>
+			</select>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-5">
 			<input class="btn btn-success btn-block" type="submit" value="Update">

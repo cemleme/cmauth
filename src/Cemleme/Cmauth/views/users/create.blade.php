@@ -6,7 +6,14 @@
 		<div class="col-md-4">
 			<input class="form-control" placeholder="Name" name="name" type="text">
 			<input class="form-control" placeholder="Email Address" name="email" type="text">
-            <br/>
+			
+			<label for="ldap" class="control-label">Authentication System</label>
+			
+			<select name="ldap" class="form-control">
+				<option value="0" selected>Cmauth</option>
+				<option value="1">LDAP</option>
+			</select>
+			<br/>
             <input class="btn btn-large btn-primary btn-block" type="submit" value="Create">
 		</div>
 	</div>

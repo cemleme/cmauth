@@ -10,6 +10,8 @@ use Hash;
 use DateTime;
 use User;
 
+use Cemleme\Cmauth\managers\LDAP;
+
 class AuthController extends BaseController {
 
 	//protected $connection="mysqlauthdb";
@@ -28,23 +30,51 @@ class AuthController extends BaseController {
 	public function getLogin() {
 		return view(config('cmauth.loginview'));
 	}
+
+	protected function processLogin($user){
+		$user->last_login = new DateTime();
+    	$user->save();
+
+    	$this->permissionRefresher->refreshPermissions(true);
+	}
 	
-	public function postLogin() {
+	public function postLogin(LDAP $ldap) {
+
+		if(!$user = User::where('email', Input::get('email'))->first()){
+ 			return Redirect::to('/cmauth/login')
+				->withInput(Input::except('password'))
+				->withErrors(['There is no such user registered to the system']);
+ 		}
 	
 		$remember = (Input::has('remember')) ? true : false;
+
+		if($user->ldap>0){
+			if($ldap->authenticate(strstr(Input::get('email'), '@', true), Input::get('password'))){
+	 			Auth::login($user);
+	 			/*
+	 			//set remember me manually
+				if ($remember)
+				{
+					Auth::createRememberTokenIfDoesntExist($user);
+					Auth::queueRecallerCookie($user);
+				}
+	 			*/
+	 			$this->processLogin($user);
+	 			return Redirect::intended('/');
+
+			}
+			else{
+ 				return Redirect::to('/cmauth/login')
+						->withInput(Input::except('password'))
+						->withErrors([Session::get('ldap_error')]);
+			}
+		}
 	
 		if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')),$remember)) {
-			
-			//date_default_timezone_set('Europe/Istanbul');
-			
-			$user = Auth::user();
-			$user->last_login = new DateTime();
-    		$user->save();
-
-    		$this->permissionRefresher->refreshPermissions(true);
-		
+			$this->processLogin(Auth::user());
 			return Redirect::intended('/');
-		} else {
+		} 
+		else {
 			return Redirect::to('/cmauth/login')
 				->withInput(Input::except('password'))
 				->withErrors(['You have entered wrong username and password']);

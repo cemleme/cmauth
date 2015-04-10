@@ -52,6 +52,7 @@ class UsersRC extends BaseController {
 			$user = new User;
 			$user->name = Input::get('name');
 			$user->email = Input::get('email');
+			$user->ldap = Input::get('ldap');
 			$password =	substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') , 0 , 6 );
 			$user->password = Hash::make($password);
 			//$user->password = Hash::make(Input::get('password'));
