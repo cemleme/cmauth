@@ -48,7 +48,7 @@ class AuthController extends BaseController {
 	
 		$remember = (Input::has('remember')) ? true : false;
 
-		if($user->ldap>0){
+		if($user->ldap>0 && config('cmauth.ldap')){
 			if($ldap->authenticate(strstr(Input::get('email'), '@', true), Input::get('password'))){
 	 			Auth::login($user);
 	 			/*
