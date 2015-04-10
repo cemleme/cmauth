@@ -17,14 +17,18 @@
 		@foreach($users as $user)
 			<tr>
 				<td  class="form-inline">
-					<a href="/cmauth/users/{{$user->id}}/yenisifremail" class="btn btn-primary laravel-submit" data-method="put" data-confirm="{{$user->name}} şifresini sıfırlamak istediğinizden emin misiniz?">Şifre Sıfırla</a>
+					@if(!($user->ldap>0 && config('cmauth.ldap')))
+						<a href="/cmauth/users/{{$user->id}}/yenisifremail" class="btn btn-info laravel-submit" data-method="put" data-confirm="{{$user->name}} şifresini sıfırlamak istediğinizden emin misiniz?">Reset Password</a>
+					@endif
+
 					<a href="/cmauth/users/{{$user->id}}/edit" class="btn btn-warning inline">edit</a>
 					<a href="/cmauth/users/{{$user->id}}" class="btn btn-danger laravel-submit" data-method="delete" data-confirm="{{$user->name}} kullanıcısını silmek istediğinizden emin misiniz?">
-						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-					</a>
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 
-					@if(!$user->welcomesent)
-					<a href="/cmauth/users/{{$user->id}}/welcomemail" class="btn btn-info laravel-submit" data-method="put" data-confirm="{{$user->name}} şifresini sıfırlamak istediğinizden emin misiniz?">Welcome</a>
+					@if($user->ldap>0 && config('cmauth.ldap'))
+						<a href="/cmauth/users/{{$user->id}}/ldapwelcomemail" class="btn btn-primary laravel-submit" data-method="put" data-confirm="{{$user->name}} şifresini sıfırlamak istediğinizden emin misiniz?">LDAP Welcome</a>
+					@elseif(!$user->welcomesent)
+						<a href="/cmauth/users/{{$user->id}}/welcomemail" class="btn btn-info laravel-submit" data-method="put" data-confirm="{{$user->name}} şifresini sıfırlamak istediğinizden emin misiniz?">Welcome</a>
 					@endif
 				</td>
 				<td>{{ $user->ldap }}</td>

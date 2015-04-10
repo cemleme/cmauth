@@ -5,6 +5,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('cmauth/user/settings', 'Cemleme\Cmauth\controllers\UsersController@changePasswordView');
 
+	Route::put('cmauth/users/{id}/ldapwelcomemail', 'Cemleme\Cmauth\controllers\UsersController@sendLDAPWelcomeMailToUser');
 	Route::put('cmauth/users/{id}/welcomemail', 'Cemleme\Cmauth\controllers\UsersController@sendWelcomeMailToUser');
 	Route::put('cmauth/users/{id}/yenisifremail', 'Cemleme\Cmauth\controllers\UsersController@sendNewPasswordMailToUser');
 

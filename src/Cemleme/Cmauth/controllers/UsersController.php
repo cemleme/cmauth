@@ -92,7 +92,7 @@ class UsersController extends BaseController {
 		//$newPassword = $this->setUserPasswordRandomly($user);
 		$this->mailer->newPassword($user, $user->newRandomPassword());
 
-		return Redirect::to('/cmauth/users')->with('message', $user->email.' adresine yeni şifre gönderildi');
+		return Redirect::to('/cmauth/users')->with('message', 'New password is sent to '.$user->email);
 	}
 
 	public function sendWelcomeMailToUser($id){
@@ -103,7 +103,14 @@ class UsersController extends BaseController {
 		$user->welcomeMailIsSent();
 		//$this->setUserWelcomeMailIsSent($user);
 
-		return Redirect::to('/cmauth/users')->with('message', $user->email.' adresine hoşgeldiniz mailı gönderildi');
+		return Redirect::to('/cmauth/users')->with('message', 'Welcome mail is sent to '.$user->email);
+	}
+
+	public function sendLDAPWelcomeMailToUser($id){
+		$user = User::find($id);
+		$this->mailer->welcomeLDAP($user);
+
+		return Redirect::to('/cmauth/users')->with('message', 'LDAP Welcome mail is sent to '.$user->email);
 	}
 
 }

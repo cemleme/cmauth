@@ -4,6 +4,14 @@ use User;
 use Config;
 
 class UserMailer extends Mailer{
+
+	public function welcomeLDAP(User $user)
+	{
+		$view = "cmauth::emails.userLDAPWelcomeMail";
+		$subject=Config::get('app.title')." access information";
+
+		return $this->sendTo($user, $subject, $view);
+	}
 	
 	public function welcome(User $user, $password)
 	{
