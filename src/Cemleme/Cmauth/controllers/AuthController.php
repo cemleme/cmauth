@@ -119,6 +119,9 @@ class AuthController extends BaseController {
 
 
 	public function getSettings() {
+		if(Auth::user()->ldap>0 && config('cmauth.ldap'))
+			return Redirect::to('/')->with('message', 'As you are connected to '.config('app.title', 'main'). ' domain, you can not change your password from here.');
+		
 		return $this->returnLayout('cmauth::pwdreset');
 	}	
 }
