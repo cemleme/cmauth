@@ -72,13 +72,13 @@ class User extends \Cemleme\Cmauth\models\User {
 You can then set User alias as 'User' => '\App\User' (or whatever your namespace is)
 
 
-Assign same User model at config/auth.php
+Assign same User model at <b>config/auth.php</b>
 
 ```
 'model' => 'Cemleme\Cmauth\models\User'  //(or \App\User if you extend \Cemleme\Cmauth\models\User)
 ```
 
-Publish config file config/cmauth.php using artisan publish command:
+Publish config file <b>config/cmauth.php</b> using artisan publish command:
 
 ```
 php artisan vendor:publish --provider="Cemleme\Cmauth\CmauthServiceProvider"
