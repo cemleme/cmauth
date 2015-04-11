@@ -50,15 +50,7 @@ class AuthController extends BaseController {
 
 		if($user->ldap>0 && config('cmauth.ldap')){
 			if($ldap->authenticate(strstr(Input::get('email'), '@', true), Input::get('password'))){
-	 			Auth::login($user);
-	 			/*
-	 			//set remember me manually
-				if ($remember)
-				{
-					Auth::createRememberTokenIfDoesntExist($user);
-					Auth::queueRecallerCookie($user);
-				}
-	 			*/
+	 			Auth::login($user, $remember);
 	 			$this->processLogin($user);
 	 			return Redirect::intended('/');
 
