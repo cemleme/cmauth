@@ -30,7 +30,7 @@ Afterwards you can use your filters and facades to check if the logged in user h
 
 <h3>Setup:</h3>
 
-In the require key of composer.json file add the following
+In the require key of <b>composer.json</b> file add the following
 
 ```
 "cemleme/cmauth": "dev-master"
@@ -42,7 +42,7 @@ Run the Composer update comand
 $ composer update cemleme/cmauth
 ```
 
-In your config/app.php add 'Zizaco\Confide\ServiceProvider' to the end of the providers array
+In your <b>config/app.php</b> add <b>CmauthServiceProvider</b> to the end of the providers array
 
 ```
 'providers' => [
@@ -51,7 +51,7 @@ In your config/app.php add 'Zizaco\Confide\ServiceProvider' to the end of the pr
 ],
 ```
 
-At the end of config/app.php add <b>'User'</b> and <b>'UserPermissionRefresher'</b> to the aliases array
+At the end of <b>config/app.php</b> add <b>'User'</b> and <b>'UserPermissionRefresher'</b> to the aliases array
 
 ```
 'aliases' => [
@@ -75,7 +75,7 @@ You can then set User alias as 'User' => '\App\User' (or whatever your namespace
 Assign same User model at config/auth.php
 
 ```
-'model' => 'Cemleme\Cmauth\models\User'  //(or \App\User if you extend it)
+'model' => 'Cemleme\Cmauth\models\User'  //(or \App\User if you extend \Cemleme\Cmauth\models\User)
 ```
 
 Publish config file config/cmauth.php using artisan publish command:
@@ -86,11 +86,13 @@ php artisan vendor:publish --provider="Cemleme\Cmauth\CmauthServiceProvider"
 
 <hr/>
 
-<h3>Cmatuh Config File:</h3>
+<h3>Cmauth Config File:</h3>
 
-'mastertemplate' : The template you want to wrap Cmauth admin panel. It looks for @yield('content') at the template page<br/>
-'loginview' => Your desired login page. Cmauth is compatible with default Laravel 5 login page. You do not need any extra fields<br/>
-'ldap' => Optional. Set it to true if you want to use LDAP authentication<br/>
-'ldap_domain' => Required if 'ldap' => true. Your LDAP domain name  <br/>
-'ldap_server' => Required if 'ldap' => true. IP address of your LDAP server<br/>
-'ldap_port' => Required if 'ldap' => true. Port of your LDAP server<br/>
+<ul>
+	<li>'mastertemplate' : The template you want to wrap Cmauth admin panel. It looks for @yield('content') at the template page</li>
+	<li>'loginview' => Your desired login page. Cmauth is compatible with default Laravel 5 login page. You do not need any extra fields</li>
+	<li>'ldap' => Optional. Set it to true if you want to use LDAP authentication</li>
+	<li>'ldap_domain' => Required if 'ldap' => true. Your LDAP domain name  </li>
+	<li>'ldap_server' => Required if 'ldap' => true. IP address of your LDAP server</li>
+	<li>'ldap_port' => Required if 'ldap' => true. Port of your LDAP server</li>
+</ul>
