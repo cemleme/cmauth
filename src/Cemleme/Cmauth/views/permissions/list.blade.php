@@ -15,7 +15,7 @@
 			<tr>
 				<td  class="form-inline">
 					<a href="/cmauth/permissions/{{ $permission->id}}/edit" class="btn btn-warning inline">edit</a>
-					<a href="/cmauth/permissions/{{$permission->id}}" class="btn btn-danger laravel-submit" data-method="delete" data-confirm="{{$permission->ident}} iznini silmek istediğinizden emin misiniz?">
+					<a href="/cmauth/permissions/{{$permission->id}}" class="btn btn-danger laravel-submit" data-method="delete" data-confirm="{{$permission->name}} iznini silmek istediğinizden emin misiniz?">
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 					</a>
 				</td>

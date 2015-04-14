@@ -23,7 +23,7 @@ class UserPermissionRefresher {
 			foreach($user->groups as $group) {		
 				$userGroupNames[$i++]=$group->name;
 				foreach($group->permissions as $permission) {	
-					$userPermissionNames[$j++]=$permission->ident;
+					$userPermissionNames[$j++]=$permission->name;
 				}
 			}
 

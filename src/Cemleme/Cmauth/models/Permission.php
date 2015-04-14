@@ -10,7 +10,7 @@ class Permission extends Eloquent {
 	//protected $primaryKey ="permission_id";
 	
 	protected $fillable = array(
-		'ident', 'description'
+		'name', 'description'
 	);
 	
 	public $timestamps = false;
