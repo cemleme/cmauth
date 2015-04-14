@@ -1,7 +1,7 @@
 <?php
 
-use CEMLEME\Auth\models\User;
-use CEMLEME\Auth\models\Group;
+use Cemleme\Cmauth\models\User;
+use Cemleme\Cmauth\models\Group;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
