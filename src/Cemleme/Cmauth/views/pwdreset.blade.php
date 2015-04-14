@@ -1,4 +1,4 @@
-<form method="POST" action="http://docsdev1.eser.com/auth/changepassword" accept-charset="UTF-8" class="form-signup">
+<form method="POST" action="/auth/changepassword" accept-charset="UTF-8" class="form-signup">
 	<input name="_token" type="hidden" value="{{{ csrf_token() }}}">
 
 	<p>
