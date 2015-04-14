@@ -3,9 +3,9 @@
 	<input name="_token" type="hidden" value="{{{ csrf_token() }}}">
 
 	<div class="form-group">
-		<label for="ident" class="control-label col-md-1">Permission Name</label>
+		<label for="name" class="control-label col-md-1">Permission Name</label>
 		<div class="col-md-4">
-			<input class="form-control" name="ident" type="text" value="{{$permission->ident}}" id="ident">
+			<input class="form-control" name="name" type="text" value="{{$permission->name}}" id="name">
 		</div>
 	</div>
 	<div class="form-group">

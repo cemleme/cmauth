@@ -24,7 +24,7 @@
 
 						<select class="form-control group-select" name="permission">
 							@foreach($permissions as $permission)
-								<option value="{{{$permission->id}}}">{{{$permission->ident}}}</option>
+								<option value="{{{$permission->id}}}">{{{$permission->name}}}</option>
 							@endforeach
 						</select>
 
@@ -38,8 +38,8 @@
 					@foreach($group->permissions as $permission)
 						<li>
 							<span class="label label-primary">
-							{{$permission->ident}}
-							<a href="/cmauth/groups/{{$group->id}}/permissions/{{$permission->id}}" class="btn btn-danger btn-xs laravel-submit" data-method="delete" data-confirm="{{ $permission->ident }} iznini, {{$group->name}} grubundan silmek istediğinizden emin misiniz?">
+							{{$permission->name}}
+							<a href="/cmauth/groups/{{$group->id}}/permissions/{{$permission->id}}" class="btn btn-danger btn-xs laravel-submit" data-method="delete" data-confirm="{{ $permission->name }} iznini, {{$group->name}} grubundan silmek istediğinizden emin misiniz?">
 								<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 							</a>
 							</span>

@@ -57,6 +57,11 @@ class CmauthServiceProvider extends ServiceProvider {
         $this->publishes([
 		    __DIR__.'/config/cmauth.php' => config_path('cmauth.php'),
 		]);
+
+		$this->publishes([
+    		__DIR__.'/database/migrations/' => database_path('/migrations'),
+    		__DIR__.'/database/seeds/' => database_path('/seeds')
+		], 'migrations');
     }
 
 

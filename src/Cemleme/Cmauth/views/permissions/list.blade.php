@@ -19,7 +19,7 @@
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 					</a>
 				</td>
-				<td>{{ $permission->ident }}</td>
+				<td>{{ $permission->name }}</td>
 				<td>{{ $permission->description }}</td>
 			</tr>
 		@endforeach

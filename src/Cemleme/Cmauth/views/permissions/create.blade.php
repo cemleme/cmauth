@@ -4,7 +4,7 @@
  
     <div class="row">
         <div class="col-md-4">
-            <input class="form-control" placeholder="Permission Name" name="ident" type="text">
+            <input class="form-control" placeholder="Permission Name" name="name" type="text">
             <input class="form-control" placeholder="Description" name="description" type="text">
             <br/>
             <input class="btn btn-large btn-primary btn-block" type="submit" value="Create">

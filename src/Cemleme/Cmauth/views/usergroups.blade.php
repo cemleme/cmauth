@@ -57,9 +57,9 @@
 								<ul class="">
 									@foreach($group->permissions as $permission)
 										<?php 
-										//$permissions.='<span class="label label-warning label-grp">'.$permission->ident.'</span>'; 
+										//$permissions.='<span class="label label-warning label-grp">'.$permission->name.'</span>'; 
 										?>
-										<li class="">{{$permission->ident }}</li>
+										<li class="">{{$permission->name }}</li>
 									@endforeach
 								</ul>  
 							</div>
