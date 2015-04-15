@@ -21,6 +21,8 @@ class AuthController extends BaseController {
 		$this->permissionRefresher = $permissionRefresher;
 
 		$this->middleware('auth', ['except' => ['getLogin', 'postLogin']]); 
+		$this->beforeFilter('acl.permitted:AppsUsersEdit', ['only' => ['getIndex']]); 
+
 	}
 	
 	public function getIndex() {

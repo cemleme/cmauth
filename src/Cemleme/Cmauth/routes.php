@@ -1,6 +1,6 @@
 <?php
 
-Route::group(array('middleware' => 'auth', 'before'=> 'acl.permitted:CMAUTH'), function()
+Route::group(array('middleware' => 'auth'), function()
 {
 
 	Route::get('cmauth/user/settings', 'Cemleme\Cmauth\controllers\UsersController@changePasswordView');
