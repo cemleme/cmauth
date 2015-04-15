@@ -51,7 +51,9 @@ class CmauthServiceProvider extends ServiceProvider {
     public function boot()
     {
     	$this->loadViewsFrom(__DIR__.'/views', 'cmauth');
+    	
         include __DIR__ . '/filters.php';
+        include __DIR__ . '/helpers.php';
         include __DIR__ . '/routes.php';
 
         $this->publishes([
