@@ -54,6 +54,9 @@ class UsersController extends BaseController {
 
 		if(!$user->groups->contains($group)){
 			$user->groups()->attach(Input::get('group'));
+
+			$user->permissionchanged = 1;
+			$user->save();
 		}
 
 		return Redirect::to('/cmauth/usersapp');
@@ -63,6 +66,9 @@ class UsersController extends BaseController {
 	{
 		$user = User::find($uid);
 		$user->groups()->detach($gid);
+		
+		$user->permissionchanged = 1;
+		$user->save();
 
 		return Redirect::to('/cmauth/usersapp');
 	}
