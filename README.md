@@ -5,6 +5,7 @@ You can creating unlimited Groups (Roles) and Permissions and assign your users 
 
 Afterwards you can use your filters and facades to check if the logged in user has proper permission for the current route / controller / method / view part.
 
+
 <hr/>
 
 <h3>Features:</h3>
@@ -95,4 +96,18 @@ php artisan vendor:publish --provider="Cemleme\Cmauth\CmauthServiceProvider"
 	<li>'ldap_domain' => Required if 'ldap' => true. Your LDAP domain name  </li>
 	<li>'ldap_server' => Required if 'ldap' => true. IP address of your LDAP server</li>
 	<li>'ldap_port' => Required if 'ldap' => true. Port of your LDAP server</li>
+</ul>
+
+<hr/>
+
+<h3>Used Packages:</h3>
+<ul>
+	<li><a href="https://almsaeedstudio.com/">Admin LTE</a></li>
+	<li><a href="https://packagist.org/packages/spatie/laravel-backup">Spatie - Laravel Backup</a></li>
+	<li><a href="https://packagist.org/packages/rap2hpoutre/laravel-log-viewer">Rap2hpoutre - Laravel Log Viewer</a></li>
+</ul>
+
+<ul>
+	<li>For log viewer, create "ViewLog" Permission and assign it to desired user. The route is /logs</li>
+	<li>For laravel backup, you can publish the config file using php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"</li>
 </ul>
